@@ -164,6 +164,9 @@
   "errorTabSwitched": {
     "message": "A captura foi interrompida porque outra aba ficou ativa. Volte à página e tente novamente."
   },
+  "errorWindowHidden": {
+    "message": "A captura foi interrompida porque a janela do navegador ficou oculta ou minimizada. Mantenha a página visível e tente novamente."
+  },
   "pdfPart": {
     "message": "trecho $1"
   },

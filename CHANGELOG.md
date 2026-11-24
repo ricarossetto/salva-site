@@ -2,6 +2,13 @@
 
 All notable changes to **Salva Site** are documented in this file.
 
+## [0.3.2] — 2026-11-24
+
+### Fixed
+- Eliminated in-page status overlays during screenshot capture so extension UI can never appear inside captured PDF pages; capture progress now updates the toolbar badge and tooltip while keeping `Escape` cancellation active, and the finalizing overlay only appears after all screenshots finish.
+- Waited for two real `requestAnimationFrame` paint commits (`waitForPaintedFrame`) and verified window/tab visibility (`document.visibilityState` and non-minimized window state) before every screenshot to prevent stale/frozen compositor frames from repeating when the browser window is occluded or painting lags.
+- Added a build-time guard in `scripts/validate.mjs` to prevent re-introducing in-page overlay toggles during screenshot capture.
+
 ## [0.3.1] — 2026-11-24
 
 ### Fixed

@@ -32,12 +32,32 @@
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  async function settlePage(delay = 260) {
-    await Promise.race([
-      new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
-      wait(140)
+  async function waitForPaintedFrame(timeoutMs = 3000) {
+    if (document.visibilityState !== "visible") {
+      throw new Error(t(
+        "errorWindowHidden",
+        undefined,
+        "A captura foi interrompida porque a janela do navegador ficou oculta ou minimizada. Mantenha a página visível e tente novamente."
+      ));
+    }
+    void document.documentElement?.offsetHeight;
+    const painted = await Promise.race([
+      new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve(true)))),
+      wait(timeoutMs).then(() => false)
     ]);
-    await wait(delay);
+    if (!painted || document.visibilityState !== "visible") {
+      throw new Error(t(
+        "errorWindowHidden",
+        undefined,
+        "A captura foi interrompida porque a janela do navegador ficou oculta ou minimizada. Mantenha a página visível e tente novamente."
+      ));
+    }
+  }
+
+  async function settlePage(delay = 180) {
+    await waitForPaintedFrame(3000);
+    if (delay > 0) await wait(delay);
+    await waitForPaintedFrame(3000);
   }
 
   function isVisibleElement(element) {
@@ -270,12 +290,33 @@
     document.documentElement.append(highlightHost);
   }
 
-  function createStatusOverlay() {
+  function attachCancelListener() {
+    if (escapeKeyHandler) return;
+    escapeKeyHandler = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        if (statusCancel) statusCancel.disabled = true;
+        chrome.runtime.sendMessage({ type: "SALVA_SITE_CANCEL_CAPTURE" }).catch(() => {});
+      }
+    };
+    window.addEventListener("keydown", escapeKeyHandler, true);
+  }
+
+  function removeStatusOverlay() {
     statusHost?.remove();
-    if (escapeKeyHandler) {
-      window.removeEventListener("keydown", escapeKeyHandler, true);
-      escapeKeyHandler = null;
-    }
+    statusHost = null;
+    statusCard = null;
+    statusTitle = null;
+    statusDetail = null;
+    statusBar = null;
+    statusTrack = null;
+    statusCancel = null;
+  }
+
+  function createStatusOverlay() {
+    removeStatusOverlay();
+    attachCancelListener();
     statusHost = document.createElement("div");
     statusHost.setAttribute("data-salva-site-ui", "status");
     Object.assign(statusHost.style, {
@@ -428,14 +469,6 @@
       chrome.runtime.sendMessage({ type: "SALVA_SITE_CANCEL_CAPTURE" }).catch(() => {});
     };
     statusCancel.addEventListener("click", triggerCancel);
-    escapeKeyHandler = (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        event.stopPropagation();
-        triggerCancel();
-      }
-    };
-    window.addEventListener("keydown", escapeKeyHandler, true);
 
     shadow.append(wrapper);
     document.documentElement.append(statusHost);
@@ -454,8 +487,14 @@
     }
   }
 
-  function setStatusCardVisible(visible) {
-    if (statusCard) statusCard.style.visibility = visible ? "visible" : "hidden";
+  async function setStatusCardVisible(visible) {
+    if (!visible) {
+      const hadHost = Boolean(statusHost?.isConnected);
+      removeStatusOverlay();
+      if (hadHost) await waitForPaintedFrame(3000);
+      return;
+    }
+    if (statusCard) statusCard.style.visibility = "visible";
   }
 
   function showToast(message, isError = false) {
@@ -514,9 +553,10 @@
     return style;
   }
 
-  function prepareCapture(settings) {
-    if (captureState) restoreCapture({ silent: true });
+  async function prepareCapture(settings) {
+    if (captureState) await restoreCapture({ silent: true });
     removeHighlight();
+    removeStatusOverlay();
 
     const selected = (settings.candidateIds || [])
       .map((id) => ({ id, element: candidates.get(id) }))
@@ -538,7 +578,8 @@
       pauseStyle: createPauseStyle(),
       target: null
     };
-    if (!settings.embeddedFrame) createStatusOverlay();
+    if (!settings.embeddedFrame) attachCancelListener();
+    await waitForPaintedFrame(3000);
 
     return {
       title: document.title,
@@ -818,14 +859,7 @@
         window.removeEventListener("keydown", escapeKeyHandler, true);
         escapeKeyHandler = null;
       }
-      statusHost?.remove();
-      statusHost = null;
-      statusCard = null;
-      statusTitle = null;
-      statusDetail = null;
-      statusBar = null;
-      statusTrack = null;
-      statusCancel = null;
+      removeStatusOverlay();
       removeHighlight();
     }
 
@@ -857,10 +891,10 @@
         updateStatus(message.title, message.detail, message.progress);
         return { ok: true };
       case "SALVA_SITE_HIDE_STATUS":
-        setStatusCardVisible(false);
+        await setStatusCardVisible(false);
         return { ok: true };
       case "SALVA_SITE_SHOW_STATUS":
-        setStatusCardVisible(true);
+        await setStatusCardVisible(true);
         return { ok: true };
       case "SALVA_SITE_FINISH":
         return restoreCapture(message);

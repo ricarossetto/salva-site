@@ -164,6 +164,9 @@
   "errorTabSwitched": {
     "message": "Capture was interrupted because another tab became active. Return to the page and try again."
   },
+  "errorWindowHidden": {
+    "message": "Capture was interrupted because the browser window became hidden or minimized. Keep the page visible and try again."
+  },
   "pdfPart": {
     "message": "part $1"
   },

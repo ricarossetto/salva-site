@@ -1,6 +1,6 @@
 {
   "name": "salva-site",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Chromium Manifest V3 extension to capture full pages, scrollable panels, and filled forms into searchable local PDFs.",
   "license": "MIT",

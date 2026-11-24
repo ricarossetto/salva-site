@@ -74,6 +74,16 @@ if (!/body\s*\{[^}]*min-width\s*:\s*390px/s.test(popupCss)) {
   throw new Error("dist/popup.css body rule must lock min-width: 390px for Chromium extension popup auto-sizing.");
 }
 
+const serviceWorkerJs = await readFile(path.join(distDir, "service-worker.js"), "utf8");
+if (/SALVA_SITE_(?:SHOW|HIDE)_STATUS/.test(serviceWorkerJs)) {
+  throw new Error("dist/service-worker.js must not toggle in-page status overlays during screenshot capture.");
+}
+const contentJs = await readFile(path.join(distDir, "content.js"), "utf8");
+const prepareMatch = contentJs.match(/function\s+prepareCapture[\s\S]*?return\s*\{/m);
+if (!prepareMatch || /createStatusOverlay\s*\(/.test(prepareMatch[0])) {
+  throw new Error("dist/content.js prepareCapture must not inject the status overlay before screenshots run.");
+}
+
 const locales = ["en", "pt_BR", "pt"];
 const localeMessages = new Map();
 for (const locale of locales) {

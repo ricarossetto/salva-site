@@ -32,12 +32,22 @@ async function sendToTab(tabId, message, frameId = 0) {
 }
 
 async function assertTabIsActive(tabId, windowId) {
-  const [activeTab] = await chrome.tabs.query({ active: true, windowId });
+  const [[activeTab], win] = await Promise.all([
+    chrome.tabs.query({ active: true, windowId }),
+    chrome.windows.get(windowId).catch(() => null)
+  ]);
   if (activeTab?.id !== tabId) {
     throw new Error(t(
       "errorTabSwitched",
       undefined,
       "A captura foi interrompida porque outra aba ficou ativa. Volte à página e tente novamente."
+    ));
+  }
+  if (win?.state === "minimized") {
+    throw new Error(t(
+      "errorWindowHidden",
+      undefined,
+      "A captura foi interrompida porque a janela do navegador ficou oculta ou minimizada. Mantenha a página visível e tente novamente."
     ));
   }
 }
@@ -385,16 +395,13 @@ async function captureTab(tabId, settings) {
     pdf.setProducer("Salva Site");
     pdf.setCreationDate(new Date());
 
+    const setActionTitle = (title) => chrome.action.setTitle({ tabId, title }).catch(() => {});
+
     let pageCount = 0;
     for (let targetIndex = 0; targetIndex < targets.length; targetIndex += 1) {
       assertNotCancelled();
       const target = targets[targetIndex];
-      await sendToTab(tabId, {
-        type: "SALVA_SITE_STATUS",
-        title: t("statusPreparingArea", [target.label], `Preparando ${target.label}`),
-        detail: t("statusAreaProgress", [String(targetIndex + 1), String(targets.length)], `Área ${targetIndex + 1} de ${targets.length}`),
-        progress: Math.round((targetIndex / Math.max(targets.length, 1)) * 100)
-      });
+      await setActionTitle(t("statusPreparingArea", [target.label], `Preparando ${target.label}`));
       const frameLayout = target.kind === "frame"
         ? await sendToTab(tabId, {
           type: "SALVA_SITE_POSITION_EMBED",
@@ -416,34 +423,22 @@ async function captureTab(tabId, settings) {
 
         const areaRatio = step.capturedEnd / Math.max(step.total, 1);
         const areaProgress = Math.min(100, Math.max(1, Math.round(areaRatio * 100)));
-        const overallProgress = Math.min(99, Math.max(1, Math.round(((targetIndex + areaRatio) / Math.max(targets.length, 1)) * 100)));
-        await sendToTab(tabId, {
-          type: "SALVA_SITE_STATUS",
-          title: t("statusCapturingArea", [step.label], `Capturando ${step.label}`),
-          detail: t("statusStepProgress", [String(step.part), String(areaProgress)], `Trecho ${step.part} • ${areaProgress}% desta área`),
-          progress: overallProgress
-        });
-        await sendToTab(tabId, { type: "SALVA_SITE_HIDE_STATUS" });
-        await delay(55);
+        await setActionTitle(`${t("statusCapturingArea", [step.label], `Capturando ${step.label}`)} — ${t("statusStepProgress", [String(step.part), String(areaProgress)], `Trecho ${step.part} • ${areaProgress}% desta área`)}`);
+        await delay(40);
         assertNotCancelled();
 
         const screenshot = await captureVisibleTabSafely(windowId, {
           format: "jpeg",
           quality
         });
-        await sendToTab(tabId, { type: "SALVA_SITE_SHOW_STATUS" });
         assertNotCancelled();
 
         const capture = await cropScreenshot(screenshot, step, quality);
         let ocrWords = [];
         if (settings.fullOcr) {
           assertNotCancelled();
-          await sendToTab(tabId, {
-            type: "SALVA_SITE_STATUS",
-            title: t("statusOcrTitle", undefined, "Aplicando OCR local…"),
-            detail: t("statusOcrDetail", [step.label, String(step.part)], `${step.label} • trecho ${step.part}. Esta etapa pode demorar.`),
-            progress: overallProgress
-          });
+          await setBadge("OCR", "#1D4ED8");
+          await setActionTitle(t("statusOcrDetail", [step.label, String(step.part)], `${step.label} • trecho ${step.part}. Esta etapa pode demorar.`));
           try {
             ocrWords = await recognizeText(capture);
           } catch (error) {
@@ -502,6 +497,7 @@ async function captureTab(tabId, settings) {
     captureCancelled = false;
     if (settings.fullOcr) await closeOcrDocument();
     await setBadge("").catch(() => {});
+    await chrome.action.setTitle({ tabId, title: "" }).catch(() => {});
   }
 }
 
