@@ -1,0 +1,835 @@
+html {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  background: var(--ux-page);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  width: 390px;
+  max-width: 100vw;
+  background: var(--ux-page);
+  color: var(--ux-ink);
+  overflow-x: hidden;
+}
+
+@media (max-width: 390px) {
+  body {
+    width: 100%;
+  }
+}
+
+.shell {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__mark {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--ux-accent);
+  color: var(--ux-accent-ink);
+}
+
+.brand__mark svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.brand p {
+  margin-top: 2px;
+  color: var(--ux-ink-2);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Lucian UX/UI Prompt #439 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#439 */
+.u439-sk {
+  display: grid;
+  gap: 8px;
+}
+
+.u439-card,
+.u439-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--ux-surface);
+  border: 1px solid var(--ux-line);
+}
+
+.u439-lines {
+  flex: 1;
+  display: grid;
+  gap: 6px;
+}
+
+.u439-box,
+.u439-line {
+  display: block;
+  border-radius: 6px;
+  background: var(--ux-surface-2);
+  background-image: linear-gradient(100deg, transparent 30%, var(--ux-surface-3) 50%, transparent 70%);
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: u439-sh 1.25s ease-in-out infinite;
+}
+
+.u439-box {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.u439-line {
+  height: 10px;
+}
+
+.u439-line--lg { width: 76%; }
+.u439-line--md { width: 62%; }
+.u439-line--sm { width: 48%; height: 8px; }
+.u439-line--xs { width: 38%; height: 8px; }
+
+@keyframes u439-sh {
+  from { background-position: 130% 0; }
+  to { background-position: -30% 0; }
+}
+
+.scan-caption {
+  padding-top: 4px;
+  color: var(--ux-ink-2);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+/* Lucian UX/UI Prompt #433 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#433 */
+.u433-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.u433-in {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.u433-cb {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--ux-surface);
+  color: var(--ux-accent-ink);
+  box-shadow: inset 0 0 0 1.5px var(--ux-line-2);
+  transition: background-color 150ms var(--ux-ease), box-shadow 150ms var(--ux-ease), transform 120ms var(--ux-ease);
+}
+
+.u433-row:hover .u433-cb {
+  box-shadow: inset 0 0 0 1.5px var(--ux-accent);
+}
+
+.u433-cb svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.u433-cb path {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 22;
+  transition: stroke-dashoffset 120ms var(--ux-ease);
+}
+
+.u433-in:checked + .u433-cb {
+  background: var(--ux-accent);
+  box-shadow: inset 0 0 0 1.5px var(--ux-accent);
+  animation: u433-bounce 320ms var(--ux-spring);
+}
+
+.u433-in:checked + .u433-cb path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 240ms var(--ux-ease) 50ms;
+}
+
+.u433-row:active .u433-cb {
+  transform: scale(0.9);
+}
+
+.u433-in:focus-visible + .u433-cb,
+.u433-in:focus-visible + .u433-sw {
+  outline: 2px solid var(--ux-accent);
+  outline-offset: 2px;
+}
+
+@keyframes u433-bounce {
+  0% { transform: scale(0.86); }
+  50% { transform: scale(1.08); }
+  100% { transform: none; }
+}
+
+.u433-sw-row {
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.u433-sw {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--ux-surface-3);
+  box-shadow: inset 0 0 0 1px var(--ux-line);
+  transition: background-color 220ms var(--ux-ease);
+}
+
+.u433-sw::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
+  transition: transform 320ms var(--ux-spring), width 200ms var(--ux-spring);
+}
+
+.u433-in:checked + .u433-sw {
+  background: var(--ux-accent);
+}
+
+.u433-in:checked + .u433-sw::after {
+  transform: translateX(18px);
+}
+
+.u433-sw-row.is-press .u433-sw::after {
+  width: 25px;
+}
+
+.u433-sw-row.is-press .u433-in:checked + .u433-sw::after {
+  transform: translateX(13px);
+}
+
+.choice--primary {
+  padding: 12px;
+  border: 1px solid var(--ux-line);
+  border-radius: 12px;
+  background: var(--ux-surface);
+}
+
+.choice__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.choice__copy strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.choice__copy small {
+  display: block;
+  margin-top: 2px;
+  color: var(--ux-ink-2);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 4px;
+}
+
+.section-heading h2 {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.section-heading p {
+  margin-top: 2px;
+  color: var(--ux-ink-2);
+  font-size: 11.5px;
+}
+
+.link-button {
+  padding: 4px 6px;
+  margin: -4px -6px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--ux-accent);
+  background: transparent;
+  font-size: 11.5px;
+  font-weight: 600;
+  transition: background-color 150ms var(--ux-ease);
+}
+
+.link-button:hover {
+  background: var(--ux-accent-soft);
+}
+
+.areas {
+  max-height: 152px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ux-surface-3) transparent;
+}
+
+.area {
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--ux-line);
+  border-radius: 12px;
+  background: var(--ux-surface);
+  transition: border-color 150ms var(--ux-ease), background-color 150ms var(--ux-ease);
+}
+
+.area:hover,
+.area:focus-within {
+  border-color: var(--ux-accent);
+}
+
+.area__text {
+  min-width: 0;
+  flex: 1;
+}
+
+.area__text strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.area__text small {
+  display: block;
+  margin-top: 2px;
+  color: var(--ux-ink-3);
+  font-size: 11px;
+}
+
+.area__pages {
+  color: var(--ux-ink-2);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.empty {
+  padding: 12px;
+  color: var(--ux-ink-2);
+  border: 1px dashed var(--ux-line-2);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.external-embeds {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--ux-line-2);
+  border-radius: 12px;
+  background: var(--ux-surface);
+}
+
+.external-embeds__heading {
+  color: var(--ux-ink);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.external-embeds__list {
+  display: grid;
+  gap: 8px;
+}
+
+.external-embed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.external-embed__text {
+  min-width: 0;
+  flex: 1;
+  color: var(--ux-ink-2);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.external-embed__allow {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--ux-line-2);
+  border-radius: 8px;
+  color: var(--ux-ink);
+  background: var(--ux-surface-2);
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 150ms var(--ux-ease), background-color 150ms var(--ux-ease), transform 120ms var(--ux-ease);
+}
+
+.external-embed__allow:hover:not(:disabled) {
+  border-color: var(--ux-accent);
+  background: var(--ux-accent-soft);
+}
+
+.external-embed__allow:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.external-embed__allow:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* Lucian UX/UI Prompt #044 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#044 */
+.u044-it {
+  border-radius: 12px;
+  background: var(--ux-surface);
+  border: 1px solid var(--ux-line);
+}
+
+.u044-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ux-ink);
+  text-align: left;
+}
+
+.u044-t {
+  flex: 1;
+}
+
+.u044-pm {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--ux-surface-2);
+  transition: background-color 200ms var(--ux-ease), transform 250ms var(--ux-spring);
+}
+
+.u044-q:hover .u044-pm {
+  transform: scale(1.06);
+}
+
+.u044-pm::before,
+.u044-pm::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 1.8px;
+  margin: -0.9px 0 0 -5px;
+  border-radius: 2px;
+  background: var(--ux-ink);
+  transition: transform 300ms var(--ux-spring), background-color 200ms var(--ux-ease);
+}
+
+.u044-pm::after {
+  transform: rotate(90deg);
+}
+
+.u044-it.open .u044-pm {
+  background: var(--ux-ink);
+}
+
+.u044-it.open .u044-pm::before,
+.u044-it.open .u044-pm::after {
+  background: var(--ux-surface);
+}
+
+.u044-it.open .u044-pm::after {
+  transform: rotate(180deg);
+}
+
+.u044-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms var(--ux-ease);
+}
+
+.u044-it.open .u044-body {
+  grid-template-rows: 1fr;
+}
+
+.u044-body > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.u044-it.is-expanded .u044-body,
+.u044-it.is-expanded .u044-body > div {
+  overflow: visible;
+}
+
+.u044-a {
+  display: grid;
+  gap: 12px;
+  padding: 4px 12px 12px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 180ms var(--ux-ease), transform 260ms var(--ux-ease);
+}
+
+.u044-it.open .u044-a {
+  opacity: 1;
+  transform: none;
+  transition-delay: 60ms;
+}
+
+/* Lucian UX/UI Prompt #031 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#031 */
+.u031-f {
+  position: relative;
+  display: grid;
+  gap: 6px;
+}
+
+.u031-lab {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ux-ink-2);
+}
+
+.u031-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ux-surface-2);
+  color: var(--ux-ink);
+  text-align: left;
+  box-shadow: inset 0 0 0 1px var(--ux-line);
+  transition: box-shadow 150ms var(--ux-ease), background-color 150ms var(--ux-ease);
+}
+
+.u031-btn:hover {
+  box-shadow: inset 0 0 0 1px var(--ux-line-2);
+}
+
+.u031-btn[aria-expanded="true"] {
+  background: var(--ux-surface);
+  box-shadow: inset 0 0 0 1.5px var(--ux-accent), 0 0 0 3px var(--ux-accent-soft);
+}
+
+.u031-v {
+  flex: 1;
+  min-width: 0;
+}
+
+.u031-v b {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.u031-v small {
+  display: block;
+  margin-top: 1px;
+  font-size: 11px;
+  color: var(--ux-ink-2);
+}
+
+.u031-car {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--ux-ink-2);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 280ms var(--ux-spring);
+}
+
+.u031-btn[aria-expanded="true"] .u031-car {
+  transform: rotate(180deg);
+}
+
+.u031-list {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 6px);
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border-radius: 12px;
+  background: var(--ux-surface);
+  box-shadow: 0 0 0 1px var(--ux-line-2), 0 16px 36px -14px var(--ux-shadow-strong);
+  transform-origin: 50% 100%;
+  outline: none;
+  opacity: 0;
+  transform: translateY(6px) scaleY(0.94);
+  visibility: hidden;
+  transition: opacity 150ms var(--ux-ease), transform 240ms var(--ux-spring), visibility 0s 240ms;
+}
+
+.u031-list.is-open {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition: opacity 150ms var(--ux-ease), transform 260ms var(--ux-spring);
+}
+
+.u031-hl {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 6px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--ux-surface-2);
+  transform: translateY(calc(var(--i, 0) * 44px));
+  transition: transform 240ms var(--ux-spring);
+  pointer-events: none;
+}
+
+.u031-o {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.u031-o__copy {
+  min-width: 0;
+}
+
+.u031-o__copy b {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.u031-o__copy small {
+  display: block;
+  font-size: 11px;
+  color: var(--ux-ink-2);
+}
+
+.u031-ck {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--ux-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 150ms var(--ux-ease), transform 240ms var(--ux-spring);
+}
+
+.u031-o[aria-selected="true"] .u031-ck {
+  opacity: 1;
+  transform: none;
+}
+
+/* Lucian UX/UI Prompt #072 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#072 */
+.u072-a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--c) 10%, var(--ux-surface));
+  border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+}
+
+.u072-ic {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: var(--c);
+  color: var(--ux-accent-ink);
+}
+
+.u072-ic svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.u072-tx {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ux-ink);
+}
+
+.u072-x {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin: -2px -4px 0 0;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--ux-ink-2);
+  transition: background-color 150ms var(--ux-ease), transform 120ms var(--ux-ease);
+}
+
+.u072-x:hover {
+  background: color-mix(in srgb, var(--c) 15%, transparent);
+}
+
+.u072-x:active {
+  transform: scale(0.9);
+}
+
+.u072-x svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.capture {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  color: var(--ux-accent-ink);
+  background: var(--ux-accent);
+  font-weight: 650;
+  font-size: 13.5px;
+  transition: background-color 150ms var(--ux-ease), transform 120ms var(--ux-ease);
+}
+
+.capture:hover:not(:disabled) {
+  background: var(--ux-accent-2);
+}
+
+.capture:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.capture:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.capture__arrow {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footnote {
+  color: var(--ux-ink-3);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+}

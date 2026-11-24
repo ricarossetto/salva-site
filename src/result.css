@@ -1,0 +1,373 @@
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--ux-page);
+  color: var(--ux-ink);
+}
+
+.card {
+  width: min(520px, 100%);
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--ux-surface);
+  box-shadow: 0 0 0 1px var(--ux-line), 0 18px 40px -24px var(--ux-shadow-strong);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  color: var(--ux-accent-ink);
+  background: var(--ux-mint);
+}
+
+.icon.is-error {
+  background: var(--ux-danger);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.description {
+  margin: 8px 0 0;
+  color: var(--ux-ink-2);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.file-info {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid var(--ux-line);
+  border-radius: 12px;
+  background: var(--ux-surface-2);
+}
+
+.file-info small {
+  display: block;
+  color: var(--ux-ink-3);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.file-info strong {
+  display: block;
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ux-ink);
+}
+
+/* Lucian UX/UI Prompt #072 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#072 */
+.u072-a {
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--c) 10%, var(--ux-surface));
+  border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+}
+
+.u072-ic {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: var(--c);
+  color: var(--ux-accent-ink);
+}
+
+.u072-ic svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.u072-tx {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ux-ink);
+}
+
+.u072-x {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin: -2px -4px 0 0;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--ux-ink-2);
+  transition: background-color 150ms var(--ux-ease), transform 120ms var(--ux-ease);
+}
+
+.u072-x:hover {
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+
+.u072-x:active {
+  transform: scale(0.9);
+}
+
+.u072-x svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* Lucian UX/UI Prompt #004 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#004 */
+.u004 {
+  --p: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.u004-btn {
+  position: relative;
+  min-width: 210px;
+  height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ux-accent);
+  color: var(--ux-accent-ink);
+  overflow: hidden;
+  isolation: isolate;
+  transition: width 360ms var(--ux-ease), background-color 220ms var(--ux-ease), transform 140ms var(--ux-ease);
+}
+
+.u004-btn:hover:not(:disabled) {
+  background: var(--ux-accent-2);
+}
+
+.u004-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.u004-btn:disabled {
+  cursor: wait;
+}
+
+.u004-idle,
+.u004-run,
+.u004-ok {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.u004-run,
+.u004-ok {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms var(--ux-ease), transform 260ms var(--ux-ease);
+}
+
+.u004-idle {
+  transition: opacity 180ms var(--ux-ease), transform 240ms var(--ux-ease);
+}
+
+.u004-arw {
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+}
+
+.u004-arw svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.u004-arw .u004-a {
+  transition: transform 220ms var(--ux-ease);
+}
+
+.u004-btn:hover:not(:disabled) .u004-arw .u004-a {
+  transform: translateY(2px);
+}
+
+.u004-track {
+  position: absolute;
+  inset: 0;
+  background: var(--ux-accent-2);
+  opacity: 0;
+  transition: opacity 200ms var(--ux-ease);
+}
+
+.u004-bar {
+  position: absolute;
+  inset: 0;
+  background: var(--ux-accent);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--p, 0.25));
+  transition: transform 260ms var(--ux-ease);
+}
+
+.u004-ok {
+  color: var(--ux-accent-ink);
+}
+
+.u004-ok i {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.u004-ok svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.u004-ok path {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 18;
+  transition: stroke-dashoffset 280ms var(--ux-ease) 100ms;
+}
+
+.u004[data-state="run"] .u004-idle {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.u004[data-state="run"] .u004-track {
+  opacity: 1;
+}
+
+.u004[data-state="run"] .u004-run {
+  opacity: 1;
+  transform: none;
+}
+
+.u004[data-state="fold"] .u004-idle,
+.u004[data-state="done"] .u004-idle {
+  opacity: 0;
+}
+
+.u004[data-state="fold"] .u004-btn,
+.u004[data-state="done"] .u004-btn {
+  background: var(--ux-mint);
+}
+
+.u004[data-state="fold"] .u004-ok,
+.u004[data-state="done"] .u004-ok {
+  opacity: 1;
+  transform: none;
+}
+
+.u004[data-state="fold"] .u004-ok path,
+.u004[data-state="done"] .u004-ok path {
+  stroke-dashoffset: 0;
+}
+
+.secondary {
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--ux-line-2);
+  border-radius: 12px;
+  color: var(--ux-ink);
+  background: var(--ux-surface);
+  font-weight: 600;
+  font-size: 13.5px;
+  transition: border-color 150ms var(--ux-ease), background-color 150ms var(--ux-ease), transform 120ms var(--ux-ease);
+}
+
+.secondary:hover {
+  border-color: var(--ux-accent);
+  background: var(--ux-surface-2);
+}
+
+.secondary:active {
+  transform: scale(0.98);
+}
+
+.privacy {
+  margin: 20px 0 0;
+  color: var(--ux-ink-3);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 16px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .u004,
+  .u004-btn {
+    width: 100%;
+  }
+}

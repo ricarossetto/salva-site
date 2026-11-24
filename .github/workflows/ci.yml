@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - run: npm run test
+      - run: npm run package
+      - name: Verify ZIP root contains manifest.json
+        run: |
+          node -e '
+            import("node:fs").then(fs => {
+              const zip = fs.readFileSync("release/salva-site-v0.3.0.zip");
+              if (!zip.includes(Buffer.from("manifest.json"))) process.exit(1);
+              console.log("ZIP ok:", (zip.length / (1024 * 1024)).toFixed(2), "MB");
+            });
+          '

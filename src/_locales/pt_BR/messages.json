@@ -1,0 +1,314 @@
+{
+  "extName": {
+    "message": "Salva Site"
+  },
+  "extShortName": {
+    "message": "Salva Site"
+  },
+  "extDescription": {
+    "message": "Salva páginas inteiras, painéis roláveis e formulários preenchidos em PDF pesquisável local, com OCR offline opcional."
+  },
+  "actionTitle": {
+    "message": "Salvar esta página como PDF"
+  },
+  "popupTagline": {
+    "message": "PDF fiel ao que está preenchido"
+  },
+  "popupScanning": {
+    "message": "Analisando as rolagens desta página…"
+  },
+  "mainPageTitle": {
+    "message": "Página principal"
+  },
+  "mainPageDesc": {
+    "message": "Captura a rolagem externa de cima até embaixo"
+  },
+  "innerScrollHeading": {
+    "message": "Rolagens internas"
+  },
+  "areasEmptySummary": {
+    "message": "Nenhuma área interna encontrada"
+  },
+  "areasSummarySingle": {
+    "message": "$1 de $2 área selecionada"
+  },
+  "areasSummaryPlural": {
+    "message": "$1 de $2 áreas selecionadas"
+  },
+  "toggleUncheckAll": {
+    "message": "Desmarcar"
+  },
+  "toggleCheckAll": {
+    "message": "Marcar todas"
+  },
+  "noScrollableAreas": {
+    "message": "Esta página não mostrou outras barras de rolagem."
+  },
+  "visiblePxDetail": {
+    "message": "$1 × $2 px visíveis"
+  },
+  "partSingle": {
+    "message": "≈ $1 trecho"
+  },
+  "partPlural": {
+    "message": "≈ $1 trechos"
+  },
+  "externalEmbedsHeading": {
+    "message": "Formulários incorporados externos detectados"
+  },
+  "externalEmbedHint": {
+    "message": "Incorporado de $1 — autorize o acesso local para rolar e capturar"
+  },
+  "allowCaptureButton": {
+    "message": "Permitir captura"
+  },
+  "permissionDeniedError": {
+    "message": "A permissão para $1 não foi concedida."
+  },
+  "embeddedFormHost": {
+    "message": "Formulário incorporado ($1)"
+  },
+  "embeddedDocFallback": {
+    "message": "Documento incorporado"
+  },
+  "embeddedDocNamed": {
+    "message": "$1 incorporado"
+  },
+  "optionsSummary": {
+    "message": "Qualidade e texto pesquisável"
+  },
+  "searchableTextTitle": {
+    "message": "Texto pesquisável inteligente"
+  },
+  "searchableTextDesc": {
+    "message": "Usa o texto do site e inclui os valores dos campos"
+  },
+  "fullOcrTitle": {
+    "message": "OCR visual local"
+  },
+  "fullOcrDesc": {
+    "message": "Reconhece imagens e canvas; pode demorar vários minutos"
+  },
+  "imageQualityLabel": {
+    "message": "Qualidade das imagens"
+  },
+  "qualityHigh": {
+    "message": "Alta"
+  },
+  "qualityBalanced": {
+    "message": "Equilibrada"
+  },
+  "qualitySmaller": {
+    "message": "Arquivo menor"
+  },
+  "captureButton": {
+    "message": "Salvar como PDF"
+  },
+  "capturePreparing": {
+    "message": "Preparando captura…"
+  },
+  "popupFootnote": {
+    "message": "Mantenha esta aba visível durante a captura. Nada será enviado para a internet."
+  },
+  "errorUnsupportedTab": {
+    "message": "Abra um site comum para usar a captura. Páginas internas do navegador não permitem extensões."
+  },
+  "errorAnalyzeFailed": {
+    "message": "Não foi possível analisar esta página."
+  },
+  "errorStartFailed": {
+    "message": "A captura não pôde ser iniciada."
+  },
+  "errorStartGeneric": {
+    "message": "Não foi possível iniciar a captura."
+  },
+  "textFieldLabel": {
+    "message": "Campo de texto $1"
+  },
+  "innerAreaLabel": {
+    "message": "Área interna $1"
+  },
+  "overlayPreparingTitle": {
+    "message": "Preparando a captura…"
+  },
+  "overlayCapturingDefault": {
+    "message": "Capturando…"
+  },
+  "overlayKeepTab": {
+    "message": "Não troque de aba até terminar."
+  },
+  "errorEmbedMissing": {
+    "message": "O formulário incorporado deixou de existir durante a captura."
+  },
+  "errorNotPrepared": {
+    "message": "A sessão de captura não foi preparada."
+  },
+  "errorAreaMissing": {
+    "message": "Uma área rolável deixou de existir durante a captura."
+  },
+  "errorNoActiveArea": {
+    "message": "Nenhuma área de captura está ativa."
+  },
+  "errorWindowTooSmall": {
+    "message": "A janela do navegador está pequena demais para capturar."
+  },
+  "errorAreaNotVisible": {
+    "message": "A área “$1” não ficou visível para a captura."
+  },
+  "fieldChecked": {
+    "message": "marcado"
+  },
+  "fieldUnchecked": {
+    "message": "desmarcado"
+  },
+  "errorTabSwitched": {
+    "message": "A captura foi interrompida porque outra aba ficou ativa. Volte à página e tente novamente."
+  },
+  "pdfPart": {
+    "message": "trecho $1"
+  },
+  "pdfPartFallback": {
+    "message": "Trecho $1"
+  },
+  "offscreenJustification": {
+    "message": "Executar OCR local nas capturas sem abrir outra página."
+  },
+  "defaultSavedTitle": {
+    "message": "Página salva"
+  },
+  "errorPanelNotVisible": {
+    "message": "O painel “$1” não ficou totalmente visível para a captura."
+  },
+  "errorNoWindowId": {
+    "message": "Não foi possível identificar a janela da página."
+  },
+  "errorSelectArea": {
+    "message": "Selecione a página principal ou pelo menos uma área interna."
+  },
+  "pdfSubject": {
+    "message": "Captura visual criada localmente pela extensão Salva Site"
+  },
+  "statusPreparingArea": {
+    "message": "Preparando $1"
+  },
+  "statusAreaProgress": {
+    "message": "Área $1 de $2"
+  },
+  "statusCapturingArea": {
+    "message": "Capturando $1"
+  },
+  "statusStepProgress": {
+    "message": "Trecho $1 • $2% desta área"
+  },
+  "statusOcrTitle": {
+    "message": "Aplicando OCR local…"
+  },
+  "statusOcrDetail": {
+    "message": "$1 • trecho $2. Esta etapa pode demorar."
+  },
+  "warningOcrFailed": {
+    "message": "O OCR falhou em um trecho: $1"
+  },
+  "statusFinalizingPdf": {
+    "message": "Finalizando o PDF…"
+  },
+  "capturedPageSingular": {
+    "message": "1 página capturada"
+  },
+  "capturedPagesPlural": {
+    "message": "$1 páginas capturadas"
+  },
+  "errorCaptureFailed": {
+    "message": "A captura não pôde ser concluída."
+  },
+  "errorCaptureInProgress": {
+    "message": "Já existe uma captura em andamento."
+  },
+  "resultPageTitle": {
+    "message": "PDF pronto — Salva Site"
+  },
+  "resultHeading": {
+    "message": "Seu PDF está pronto"
+  },
+  "resultDescription": {
+    "message": "A janela para escolher onde salvar será aberta automaticamente."
+  },
+  "resultFileLabel": {
+    "message": "Arquivo"
+  },
+  "resultContentLabel": {
+    "message": "Conteúdo"
+  },
+  "resultDownloadButton": {
+    "message": "Salvar PDF"
+  },
+  "resultCloseButton": {
+    "message": "Fechar esta aba"
+  },
+  "resultPrivacyNote": {
+    "message": "O arquivo foi montado no seu computador. Nenhum conteúdo foi enviado para um servidor."
+  },
+  "resultErrorTitle": {
+    "message": "Não foi possível abrir o PDF"
+  },
+  "resultErrorDescription": {
+    "message": "A página original continua intacta."
+  },
+  "resultSavingButton": {
+    "message": "Abrindo janela para salvar…"
+  },
+  "resultSaveAgainButton": {
+    "message": "Salvar novamente"
+  },
+  "resultRetrySaveButton": {
+    "message": "Tentar salvar novamente"
+  },
+  "resultDownloadFailed": {
+    "message": "O download não pôde ser iniciado."
+  },
+  "resultMissingId": {
+    "message": "O identificador do arquivo não foi encontrado."
+  },
+  "resultExpiredFile": {
+    "message": "O arquivo temporário não existe mais. Faça uma nova captura."
+  },
+  "resultPageSingular": {
+    "message": "1 página"
+  },
+  "resultPagesPlural": {
+    "message": "$1 páginas"
+  },
+  "resultDetailsFormat": {
+    "message": "$1 • $2"
+  },
+  "resultOcrWarning": {
+    "message": "O PDF foi criado, mas o OCR não reconheceu um ou mais trechos. As imagens continuam preservadas normalmente."
+  },
+  "resultReadFailed": {
+    "message": "O arquivo temporário não pôde ser lido."
+  },
+  "cancelCaptureButton": {
+    "message": "Cancelar"
+  },
+  "captureCancelledToast": {
+    "message": "Captura cancelada. Rolagem e foco originais restaurados."
+  },
+  "statusProgressAria": {
+    "message": "Progresso da captura"
+  },
+  "dismissAlertLabel": {
+    "message": "Fechar aviso"
+  },
+  "qualityHighDetail": {
+    "message": "92% • Maior nitidez para textos e campos"
+  },
+  "qualityBalancedDetail": {
+    "message": "84% • Equilíbrio entre nitidez e tamanho"
+  },
+  "qualitySmallerDetail": {
+    "message": "72% • PDF mais leve para páginas longas"
+  },
+  "resultSavedNotice": {
+    "message": "Salvo em Downloads"
+  }
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="resultPageTitle">PDF ready — Salva Site</title>
+    <link rel="stylesheet" href="lucian-tokens.css">
+    <link rel="stylesheet" href="result.css">
+  </head>
+  <body>
+    <main class="card ux">
+      <div id="state-icon" class="icon" aria-hidden="true">
+        <svg id="state-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5 9.5 17 19 7.5"/>
+        </svg>
+      </div>
+
+      <h1 id="title" data-i18n="resultHeading">Your PDF is ready</h1>
+      <p id="description" class="description" data-i18n="resultDescription">The save dialog will open automatically.</p>
+
+      <section id="file-info" class="file-info" hidden>
+        <div>
+          <small data-i18n="resultFileLabel">File</small>
+          <strong id="filename"></strong>
+        </div>
+        <div>
+          <small data-i18n="resultContentLabel">Content</small>
+          <strong id="details" class="ux-num"></strong>
+        </div>
+      </section>
+
+      <!-- Lucian UX/UI Prompt #072 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#072 -->
+      <div id="warning" class="u072-a" role="status" style="--c: var(--ux-warn)" hidden>
+        <span class="u072-ic" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><path d="M8 2.5l6 10.5H2zM8 7v2.5M8 11.3h.01"/></svg>
+        </span>
+        <p id="warning-text" class="u072-tx"></p>
+        <button id="warning-dismiss" class="u072-x" type="button" aria-label="Dismiss">
+          <svg viewBox="0 0 13 13"><path d="M3 3l7 7M10 3l-7 7"/></svg>
+        </button>
+      </div>
+
+      <div id="error" class="u072-a" role="alert" style="--c: var(--ux-danger)" hidden>
+        <span class="u072-ic" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><path d="M8 4.5v4M8 11.2h.01"/></svg>
+        </span>
+        <p id="error-text" class="u072-tx"></p>
+        <button id="error-dismiss" class="u072-x" type="button" aria-label="Dismiss">
+          <svg viewBox="0 0 13 13"><path d="M3 3l7 7M10 3l-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="actions">
+        <!-- Lucian UX/UI Prompt #004 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#004 -->
+        <div id="download-wrap" class="u004" data-state="idle">
+          <button id="download" class="u004-btn" type="button">
+            <span class="u004-track" aria-hidden="true"><span class="u004-bar"></span></span>
+            <span class="u004-idle">
+              <span class="u004-arw" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <g class="u004-a"><path d="M12 4.5v11M7 11l5 5 5-5"/></g>
+                  <path d="M5 19.5h14"/>
+                </svg>
+              </span>
+              <b id="download-label" data-i18n="resultDownloadButton">Save PDF</b>
+            </span>
+            <span class="u004-run" aria-hidden="true">
+              <b id="download-status-text" data-i18n="resultSavingButton">Opening save dialog…</b>
+            </span>
+            <span class="u004-ok" aria-hidden="true">
+              <i><svg viewBox="0 0 16 16"><path d="M3.5 8.4l3 3 6-6.4"/></svg></i>
+              <span id="download-done-text" data-i18n="resultSavedNotice">Saved to Downloads</span>
+            </span>
+          </button>
+          <span id="download-live" class="ux-sr" aria-live="polite"></span>
+        </div>
+
+        <button id="close" class="secondary" type="button" data-i18n="resultCloseButton">Close this tab</button>
+      </div>
+
+      <p class="privacy" data-i18n="resultPrivacyNote">The file was built on your computer. No content was sent to any server.</p>
+    </main>
+    <script src="i18n.js"></script>
+    <script src="db.js"></script>
+    <script src="result.js"></script>
+  </body>
+</html>

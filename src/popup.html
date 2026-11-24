@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="extName">Salva Site</title>
+    <link rel="stylesheet" href="lucian-tokens.css">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell ux">
+      <header class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+            <path d="M5 7.5h14M5 12h10.5M5 16.5h7.5"/>
+          </svg>
+        </span>
+        <div>
+          <h1 data-i18n="extName">Salva Site</h1>
+          <p data-i18n="popupTagline">Faithful PDF of what is filled in</p>
+        </div>
+      </header>
+
+      <!-- Lucian UX/UI Prompt #439 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#439 -->
+      <section id="scan-state" class="u439-sk" aria-live="polite" aria-busy="true">
+        <div class="u439-card">
+          <i class="u439-box"></i>
+          <div class="u439-lines">
+            <i class="u439-line u439-line--lg"></i>
+            <i class="u439-line u439-line--sm"></i>
+          </div>
+        </div>
+        <div class="u439-row">
+          <i class="u439-box"></i>
+          <div class="u439-lines">
+            <i class="u439-line u439-line--md"></i>
+            <i class="u439-line u439-line--xs"></i>
+          </div>
+        </div>
+        <div class="u439-row">
+          <i class="u439-box"></i>
+          <div class="u439-lines">
+            <i class="u439-line u439-line--lg"></i>
+            <i class="u439-line u439-line--xs"></i>
+          </div>
+        </div>
+        <p id="scan-message" class="scan-caption" data-i18n="popupScanning">Analyzing scroll areas on this page…</p>
+      </section>
+
+      <section id="content" class="content" hidden>
+        <!-- Lucian UX/UI Prompt #433 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#433 -->
+        <label class="u433-row choice choice--primary">
+          <input id="include-page" class="u433-in" type="checkbox" checked>
+          <span class="u433-cb" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m5.5 12.5 4 4 9-9.5"/></svg>
+          </span>
+          <span class="choice__copy">
+            <strong data-i18n="mainPageTitle">Main page</strong>
+            <small data-i18n="mainPageDesc">Captures outer scroll from top to bottom</small>
+          </span>
+        </label>
+
+        <div class="section-heading">
+          <div>
+            <h2 data-i18n="innerScrollHeading">Inner scroll areas</h2>
+            <p id="areas-summary" class="ux-num" data-i18n="areasEmptySummary">No inner area found</p>
+          </div>
+          <button id="toggle-areas" class="link-button" type="button" data-i18n="toggleUncheckAll">Uncheck</button>
+        </div>
+
+        <div id="areas" class="areas"></div>
+
+        <div id="external-embeds" class="external-embeds" hidden>
+          <p class="external-embeds__heading" data-i18n="externalEmbedsHeading">External embedded forms detected</p>
+          <div id="external-embeds-list" class="external-embeds__list"></div>
+        </div>
+
+        <!-- Lucian UX/UI Prompt #044 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#044 -->
+        <div id="options-item" class="u044-it">
+          <button id="options-toggle" class="u044-q" type="button" aria-expanded="false" aria-controls="options-body">
+            <span class="u044-t" data-i18n="optionsSummary">Quality and searchable text</span>
+            <span class="u044-pm" aria-hidden="true"></span>
+          </button>
+          <div id="options-body" class="u044-body" role="region" aria-labelledby="options-toggle">
+            <div>
+              <div class="u044-a">
+                <label class="u433-row u433-sw-row">
+                  <span class="choice__copy">
+                    <strong data-i18n="searchableTextTitle">Smart searchable text</strong>
+                    <small data-i18n="searchableTextDesc">Uses page text and includes filled field values</small>
+                  </span>
+                  <input id="searchable-text" class="u433-in" type="checkbox" role="switch" checked>
+                  <span class="u433-sw" aria-hidden="true"></span>
+                </label>
+
+                <label class="u433-row u433-sw-row">
+                  <span class="choice__copy">
+                    <strong data-i18n="fullOcrTitle">Local visual OCR</strong>
+                    <small data-i18n="fullOcrDesc">Recognizes images and canvas; may take several minutes</small>
+                  </span>
+                  <input id="full-ocr" class="u433-in" type="checkbox" role="switch">
+                  <span class="u433-sw" aria-hidden="true"></span>
+                </label>
+
+                <!-- Lucian UX/UI Prompt #031 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#031 -->
+                <div id="quality-picker" class="u031-f">
+                  <span id="quality-label" class="u031-lab" data-i18n="imageQualityLabel">Image quality</span>
+                  <button
+                    id="quality-btn"
+                    class="u031-btn"
+                    type="button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-labelledby="quality-label quality-current-label"
+                    aria-controls="quality-listbox"
+                  >
+                    <span class="u031-v">
+                      <b id="quality-current-label" data-i18n="qualityHigh">High</b>
+                      <small id="quality-current-detail" class="ux-num" data-i18n="qualityHighDetail">92% • Sharpest text and forms</small>
+                    </span>
+                    <svg class="u031-car" viewBox="0 0 18 18" aria-hidden="true">
+                      <path d="M4.5 7l4.5 4.5L13.5 7"/>
+                    </svg>
+                  </button>
+                  <ul id="quality-listbox" class="u031-list" role="listbox" tabindex="-1" aria-labelledby="quality-label">
+                    <li class="u031-hl" role="presentation" aria-hidden="true"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lucian UX/UI Prompt #072 · MIT License (c) 2026 Seokwoooo · https://lucianlabs.dev/uxui-prompt/#072 -->
+        <div id="error" class="u072-a" role="alert" style="--c: var(--ux-danger)" hidden>
+          <span class="u072-ic" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="M8 4.5v4M8 11.2h.01"/></svg>
+          </span>
+          <p id="error-text" class="u072-tx"></p>
+          <button id="error-dismiss" class="u072-x" type="button" aria-label="Dismiss">
+            <svg viewBox="0 0 13 13"><path d="M3 3l7 7M10 3l-7 7"/></svg>
+          </button>
+        </div>
+
+        <button id="capture" class="capture" type="button">
+          <span id="capture-label" data-i18n="captureButton">Save as PDF</span>
+          <svg class="capture__arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M3.5 8h9M9 4.5 12.5 8 9 11.5"/>
+          </svg>
+        </button>
+        <p class="footnote" data-i18n="popupFootnote">Keep this tab visible during capture. Nothing is sent to the internet.</p>
+      </section>
+    </main>
+    <script src="i18n.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

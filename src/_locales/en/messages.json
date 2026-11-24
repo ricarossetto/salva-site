@@ -1,0 +1,314 @@
+{
+  "extName": {
+    "message": "Salva Site"
+  },
+  "extShortName": {
+    "message": "Salva Site"
+  },
+  "extDescription": {
+    "message": "Capture full pages, scrollable panels, and filled forms into searchable local PDFs — with optional offline OCR. 100% private."
+  },
+  "actionTitle": {
+    "message": "Save this page as PDF"
+  },
+  "popupTagline": {
+    "message": "Faithful PDF of what is filled in"
+  },
+  "popupScanning": {
+    "message": "Analyzing scroll areas on this page…"
+  },
+  "mainPageTitle": {
+    "message": "Main page"
+  },
+  "mainPageDesc": {
+    "message": "Captures outer scroll from top to bottom"
+  },
+  "innerScrollHeading": {
+    "message": "Inner scroll areas"
+  },
+  "areasEmptySummary": {
+    "message": "No inner area found"
+  },
+  "areasSummarySingle": {
+    "message": "$1 of $2 area selected"
+  },
+  "areasSummaryPlural": {
+    "message": "$1 of $2 areas selected"
+  },
+  "toggleUncheckAll": {
+    "message": "Uncheck"
+  },
+  "toggleCheckAll": {
+    "message": "Select all"
+  },
+  "noScrollableAreas": {
+    "message": "This page did not show other scrollbars."
+  },
+  "visiblePxDetail": {
+    "message": "$1 × $2 px visible"
+  },
+  "partSingle": {
+    "message": "≈ $1 part"
+  },
+  "partPlural": {
+    "message": "≈ $1 parts"
+  },
+  "externalEmbedsHeading": {
+    "message": "External embedded forms detected"
+  },
+  "externalEmbedHint": {
+    "message": "Embedded from $1 — grant local access to scroll and capture it"
+  },
+  "allowCaptureButton": {
+    "message": "Allow capture"
+  },
+  "permissionDeniedError": {
+    "message": "Access to $1 was not granted."
+  },
+  "embeddedFormHost": {
+    "message": "Embedded form ($1)"
+  },
+  "embeddedDocFallback": {
+    "message": "Embedded document"
+  },
+  "embeddedDocNamed": {
+    "message": "$1 (embedded)"
+  },
+  "optionsSummary": {
+    "message": "Quality and searchable text"
+  },
+  "searchableTextTitle": {
+    "message": "Smart searchable text"
+  },
+  "searchableTextDesc": {
+    "message": "Uses page text and includes filled field values"
+  },
+  "fullOcrTitle": {
+    "message": "Local visual OCR"
+  },
+  "fullOcrDesc": {
+    "message": "Recognizes images and canvas; may take several minutes"
+  },
+  "imageQualityLabel": {
+    "message": "Image quality"
+  },
+  "qualityHigh": {
+    "message": "High"
+  },
+  "qualityBalanced": {
+    "message": "Balanced"
+  },
+  "qualitySmaller": {
+    "message": "Smaller file"
+  },
+  "captureButton": {
+    "message": "Save as PDF"
+  },
+  "capturePreparing": {
+    "message": "Preparing capture…"
+  },
+  "popupFootnote": {
+    "message": "Keep this tab visible during capture. Nothing is sent to the internet."
+  },
+  "errorUnsupportedTab": {
+    "message": "Open a regular website to capture. Internal browser pages do not allow extensions."
+  },
+  "errorAnalyzeFailed": {
+    "message": "Could not analyze this page."
+  },
+  "errorStartFailed": {
+    "message": "Capture could not be started."
+  },
+  "errorStartGeneric": {
+    "message": "Could not start capture."
+  },
+  "textFieldLabel": {
+    "message": "Text field $1"
+  },
+  "innerAreaLabel": {
+    "message": "Inner area $1"
+  },
+  "overlayPreparingTitle": {
+    "message": "Preparing capture…"
+  },
+  "overlayCapturingDefault": {
+    "message": "Capturing…"
+  },
+  "overlayKeepTab": {
+    "message": "Do not switch tabs until finished."
+  },
+  "errorEmbedMissing": {
+    "message": "The embedded form disappeared during capture."
+  },
+  "errorNotPrepared": {
+    "message": "Capture session was not prepared."
+  },
+  "errorAreaMissing": {
+    "message": "A scrollable area disappeared during capture."
+  },
+  "errorNoActiveArea": {
+    "message": "No capture area is active."
+  },
+  "errorWindowTooSmall": {
+    "message": "The browser window is too small to capture."
+  },
+  "errorAreaNotVisible": {
+    "message": "The area “$1” was not visible enough to capture."
+  },
+  "fieldChecked": {
+    "message": "checked"
+  },
+  "fieldUnchecked": {
+    "message": "unchecked"
+  },
+  "errorTabSwitched": {
+    "message": "Capture was interrupted because another tab became active. Return to the page and try again."
+  },
+  "pdfPart": {
+    "message": "part $1"
+  },
+  "pdfPartFallback": {
+    "message": "Part $1"
+  },
+  "offscreenJustification": {
+    "message": "Run local OCR on captured images without opening another tab."
+  },
+  "defaultSavedTitle": {
+    "message": "Saved page"
+  },
+  "errorPanelNotVisible": {
+    "message": "The panel “$1” was not fully visible for capture."
+  },
+  "errorNoWindowId": {
+    "message": "Could not identify the page window."
+  },
+  "errorSelectArea": {
+    "message": "Select the main page or at least one inner area."
+  },
+  "pdfSubject": {
+    "message": "Visual capture created locally by the Salva Site extension"
+  },
+  "statusPreparingArea": {
+    "message": "Preparing $1"
+  },
+  "statusAreaProgress": {
+    "message": "Area $1 of $2"
+  },
+  "statusCapturingArea": {
+    "message": "Capturing $1"
+  },
+  "statusStepProgress": {
+    "message": "Part $1 • $2% of this area"
+  },
+  "statusOcrTitle": {
+    "message": "Applying local OCR…"
+  },
+  "statusOcrDetail": {
+    "message": "$1 • part $2. This step may take a while."
+  },
+  "warningOcrFailed": {
+    "message": "OCR failed on one part: $1"
+  },
+  "statusFinalizingPdf": {
+    "message": "Finalizing PDF…"
+  },
+  "capturedPageSingular": {
+    "message": "1 page captured"
+  },
+  "capturedPagesPlural": {
+    "message": "$1 pages captured"
+  },
+  "errorCaptureFailed": {
+    "message": "Capture could not be completed."
+  },
+  "errorCaptureInProgress": {
+    "message": "A capture is already in progress."
+  },
+  "resultPageTitle": {
+    "message": "PDF ready — Salva Site"
+  },
+  "resultHeading": {
+    "message": "Your PDF is ready"
+  },
+  "resultDescription": {
+    "message": "The save dialog will open automatically."
+  },
+  "resultFileLabel": {
+    "message": "File"
+  },
+  "resultContentLabel": {
+    "message": "Content"
+  },
+  "resultDownloadButton": {
+    "message": "Save PDF"
+  },
+  "resultCloseButton": {
+    "message": "Close this tab"
+  },
+  "resultPrivacyNote": {
+    "message": "The file was built on your computer. No content was sent to any server."
+  },
+  "resultErrorTitle": {
+    "message": "Could not open the PDF"
+  },
+  "resultErrorDescription": {
+    "message": "The original page remains intact."
+  },
+  "resultSavingButton": {
+    "message": "Opening save dialog…"
+  },
+  "resultSaveAgainButton": {
+    "message": "Save again"
+  },
+  "resultRetrySaveButton": {
+    "message": "Try saving again"
+  },
+  "resultDownloadFailed": {
+    "message": "Download could not be started."
+  },
+  "resultMissingId": {
+    "message": "File identifier was not found."
+  },
+  "resultExpiredFile": {
+    "message": "The temporary file no longer exists. Start a new capture."
+  },
+  "resultPageSingular": {
+    "message": "1 page"
+  },
+  "resultPagesPlural": {
+    "message": "$1 pages"
+  },
+  "resultDetailsFormat": {
+    "message": "$1 • $2"
+  },
+  "resultOcrWarning": {
+    "message": "The PDF was created, but OCR could not recognize one or more parts. Images are still preserved normally."
+  },
+  "resultReadFailed": {
+    "message": "The temporary file could not be read."
+  },
+  "cancelCaptureButton": {
+    "message": "Cancel"
+  },
+  "captureCancelledToast": {
+    "message": "Capture cancelled. Original scroll and focus restored."
+  },
+  "statusProgressAria": {
+    "message": "Capture progress"
+  },
+  "dismissAlertLabel": {
+    "message": "Dismiss alert"
+  },
+  "qualityHighDetail": {
+    "message": "92% • Sharpest text and forms"
+  },
+  "qualityBalancedDetail": {
+    "message": "84% • Balanced clarity and file size"
+  },
+  "qualitySmallerDetail": {
+    "message": "72% • Compact PDF for long pages"
+  },
+  "resultSavedNotice": {
+    "message": "Saved to Downloads"
+  }
+}

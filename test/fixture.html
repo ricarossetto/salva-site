@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Ficha de teste Salva Site</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #1f2937; background: #edf3f9; font: 16px/1.45 system-ui, sans-serif; }
+      header { height: 220px; padding: 42px; color: white; background: linear-gradient(135deg, #071a3b, #0d57ae); }
+      main { width: min(1080px, calc(100% - 48px)); margin: -90px auto 0; }
+      .card { padding: 24px; border-radius: 18px; background: white; box-shadow: 0 18px 45px rgba(23,45,75,.14); }
+      .scroll-panel { height: 430px; overflow-y: auto; padding: 22px; border: 2px solid #d8e3ef; border-radius: 14px; }
+      label { display: grid; gap: 7px; margin-bottom: 25px; }
+      input, select, textarea { width: 100%; padding: 13px; border: 1px solid #b9c7d8; border-radius: 9px; font: inherit; }
+      .spacer { height: 520px; display: grid; place-items: center; color: #65758b; }
+      footer { height: 500px; padding: 80px 40px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <header><h1>Formulário de avaliação</h1><p>Teste de rolagem externa e interna</p></header>
+    <main>
+      <section class="card">
+        <h2>Dados preenchidos</h2>
+        <div class="scroll-panel" aria-label="Formulário interno de teste">
+          <label>Nome da parte<input value="Maria Clara de Souza"></label>
+          <label>Comparecimento<select><option selected>por seus próprios meios</option></select></label>
+          <label>Estado geral<input value="bom estado geral"></label>
+          <label>Discurso<input value="coerente"></label>
+          <label>Marcha<input value="normal"></label>
+          <label>Observações<textarea rows="5">Texto que precisa continuar salvo mesmo dentro da área rolável.</textarea></label>
+          <label><span><input type="checkbox" checked style="width:auto"> Documento conferido</span></label>
+          <p>Fim do conteúdo interno. Esta frase deve aparecer no PDF.</p>
+        </div>
+      </section>
+      <div class="spacer">Conteúdo intermediário da página principal</div>
+    </main>
+    <footer><h2>Fim da página externa</h2><p>Esta parte confirma a captura da rolagem normal.</p></footer>
+  </body>
+</html>

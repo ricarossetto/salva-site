@@ -1,0 +1,30 @@
+{
+  "name": "salva-site",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Chromium Manifest V3 extension to capture full pages, scrollable panels, and filled forms into searchable local PDFs.",
+  "license": "MIT",
+  "author": "Ricardo Rossetto",
+  "homepage": "https://github.com/ricarossetto/salva-site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricarossetto/salva-site.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "package": "npm run build && npm run validate && node scripts/package.mjs",
+    "test": "npm run build && npm run validate"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans": "^5.2.8",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "@tesseract.js-data/por": "^1.0.0",
+    "pdf-lib": "^1.17.1",
+    "pngjs": "^7.0.0",
+    "tesseract.js": "^6.0.1",
+    "tesseract.js-core": "^6.0.0"
+  }
+}
