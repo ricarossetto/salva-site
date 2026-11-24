@@ -74,7 +74,7 @@ Leia a [Política de Privacidade](PRIVACY.md) completa.
 
 ### Opção 1: Release do GitHub (sem compactação)
 
-1. Baixe o arquivo `salva-site-v0.3.0.zip` na página de [Releases](https://github.com/ricarossetto/salva-site/releases) e extraia a pasta.
+1. Baixe o arquivo `salva-site-v0.3.1.zip` na página de [Releases](https://github.com/ricarossetto/salva-site/releases) e extraia a pasta.
 2. Abra `brave://extensions` (ou `chrome://extensions` / `edge://extensions`).
 3. Ative o **Modo do desenvolvedor**.
 4. Clique em **Carregar sem compactação** e selecione a pasta extraída (que contém `manifest.json`).
@@ -90,7 +90,7 @@ npm ci
 npm run package
 ```
 
-O comando monta a pasta `dist/`, executa todas as validações e gera `release/salva-site-v0.3.0.zip`.
+O comando monta a pasta `dist/`, executa todas as validações e gera `release/salva-site-v0.3.1.zip`.
 
 ---
 

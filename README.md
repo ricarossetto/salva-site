@@ -76,7 +76,7 @@ Salva Site follows the principle of least privilege:
 
 ### Option 1: GitHub Release (Unpacked)
 
-1. Download `salva-site-v0.3.0.zip` from the [Releases](https://github.com/ricarossetto/salva-site/releases) page and unzip it.
+1. Download `salva-site-v0.3.1.zip` from the [Releases](https://github.com/ricarossetto/salva-site/releases) page and unzip it.
 2. Open `chrome://extensions` (or `brave://extensions` / `edge://extensions`).
 3. Enable **Developer mode**.
 4. Click **Load unpacked** and select the unzipped folder (containing `manifest.json`).
@@ -92,7 +92,7 @@ npm ci
 npm run package
 ```
 
-This builds `dist/`, runs all validation checks, and produces `release/salva-site-v0.3.0.zip`.
+This builds `dist/`, runs all validation checks, and produces `release/salva-site-v0.3.1.zip`.
 
 ---
 

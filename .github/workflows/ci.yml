@@ -22,8 +22,9 @@ jobs:
         run: |
           node -e '
             import("node:fs").then(fs => {
-              const zip = fs.readFileSync("release/salva-site-v0.3.0.zip");
+              const { version } = JSON.parse(fs.readFileSync("package.json", "utf8"));
+              const zip = fs.readFileSync(`release/salva-site-v${version}.zip`);
               if (!zip.includes(Buffer.from("manifest.json"))) process.exit(1);
-              console.log("ZIP ok:", (zip.length / (1024 * 1024)).toFixed(2), "MB");
+              console.log(`ZIP v${version} ok:`, (zip.length / (1024 * 1024)).toFixed(2), "MB");
             });
           '

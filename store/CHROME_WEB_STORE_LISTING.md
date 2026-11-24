@@ -1,4 +1,4 @@
-# Chrome Web Store Submission Guide — Salva Site v0.3.0
+# Chrome Web Store Submission Guide — Salva Site v0.3.1
 
 Ready-to-paste copy and verified paths for the [Chrome Web Store Developer Console](https://chrome.google.com/webstore/devconsole).
 
@@ -6,7 +6,7 @@ Ready-to-paste copy and verified paths for the [Chrome Web Store Developer Conso
 
 ## 1. Package & Graphic Assets
 
-- **Extension ZIP package:** `release/salva-site-v0.3.0.zip` (`manifest.json` at root, 30 files)
+- **Extension ZIP package:** `release/salva-site-v0.3.1.zip` (`manifest.json` at root, 30 files)
 - **Store icon (`128x128` RGBA PNG):** `store/assets/store-icon-128x128.png`
 - **Screenshots (`1280x800` 24-bit RGB PNG, no alpha):**
   - English: `store/assets/screenshot-1-popup-en.png`, `store/assets/screenshot-2-result-en.png`

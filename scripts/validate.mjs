@@ -63,6 +63,17 @@ if (!manifest.optional_host_permissions?.includes("https://*/*")) {
   throw new Error("manifest.json must declare optional_host_permissions including https://*/*.");
 }
 
+const popupCss = await readFile(path.join(distDir, "popup.css"), "utf8");
+if (/\b100vw\b/i.test(popupCss)) {
+  throw new Error("dist/popup.css must not use 100vw (breaks Chromium extension popup auto-sizing).");
+}
+if (/@media\s*\(\s*max-width\s*:/i.test(popupCss)) {
+  throw new Error("dist/popup.css must not use @media (max-width: ...) rules (breaks Chromium extension popup auto-sizing).");
+}
+if (!/body\s*\{[^}]*min-width\s*:\s*390px/s.test(popupCss)) {
+  throw new Error("dist/popup.css body rule must lock min-width: 390px for Chromium extension popup auto-sizing.");
+}
+
 const locales = ["en", "pt_BR", "pt"];
 const localeMessages = new Map();
 for (const locale of locales) {

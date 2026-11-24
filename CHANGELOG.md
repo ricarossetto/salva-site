@@ -2,6 +2,13 @@
 
 All notable changes to **Salva Site** are documented in this file.
 
+## [0.3.1] — 2026-11-24
+
+### Fixed
+- Fixed extension popup collapsing to a ~24px scrollbar strip in Chromium/Brave by locking `body` to `390px` and removing `max-width: 100vw` and `@media (max-width: 390px)` rules that broke Chromium's popup auto-sizing pass.
+- Added a build-time validation guard in `scripts/validate.mjs` to prevent viewport-width regressions in `popup.css`.
+- Made `.github/workflows/ci.yml` resolve the packaged `.zip` version dynamically from `package.json`.
+
 ## [0.3.0] — 2026-11-24
 
 ### Added
